@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "8081f4b8-ec92-4aa4-9818-ccd3017a36f0",
+		"name": "SD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25697523"
+	},
+	"item": [
+		{
+			"name": "Devolver todos los productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/producto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Devolver 1 producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/producto/Producto1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"producto",
+						"Producto1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Producto1",
+							"description": "Producto1",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "200",
+							"description": "200€",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"value": "miProducto.png",
+							"description": "foto del producto",
+							"type": "text"
+						},
+						{
+							"key": "categoria",
+							"value": "general",
+							"description": "general",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/producto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar 1 producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/producto/Producto1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"producto",
+						"Producto1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/producto/Producto1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"producto",
+						"Producto1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
