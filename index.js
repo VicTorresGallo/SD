@@ -10,14 +10,20 @@ console.log('Servidor ejecutándose en puerto 8080...');
 */
 
 'use strict'
-const port = process.env.PORT || 8888;
+const port = process.env.PORT || 3000;
 
 const express = require('express');
+const logger = require('morgan');
 
 const app = express();
 
+//middleware
+app.use(logger('tiny'));
+
+//declarar el API
+
 app.get('/hola/:unNombre', (req, res) => {
-    res.status(200).send({ mensaje: `Hola ${req.params.unNombre} desde SD!` });
+    res.status(200).send({ mensaje: `Hola ${req.params.unNombre} esto es una preueba de nodemon` });
 });
 
 app.listen(port, () => {
