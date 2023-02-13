@@ -1,14 +1,3 @@
-/*
-var http = require('http');
-
-http.createServer( (request, response) => {
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end('Hola a todas y a todos!\n');
-}).listen(8080);
-
-console.log('Servidor ejecutándose en puerto 8080...');
-*/
-
 'use strict'
 const port = process.env.PORT || 3000;
 
@@ -18,14 +7,48 @@ const logger = require('morgan');
 const app = express();
 
 //middleware
-app.use(logger('tiny'));
+app.use(logger('dev'));
 
 //declarar el API
 
-app.get('/hola/:unNombre', (req, res) => {
-    res.status(200).send({ mensaje: `Hola ${req.params.unNombre} esto es una preueba de nodemon` });
+app.get('/api/producto', (req, res) => {
+    res.status(200);
+    res.send({ productos: []});
+});
+
+app.get('/api/producto/:productID', (req, res) => {
+    const productID = req.params.productID;
+    
+    res.status(200);
+    res.send({ producto: productID });
+});
+
+app.post('/api/producto', (req, res) => {
+    const queProducto = req.body;
+    console.log(queProducto);
+
+    res.status(200);
+    res.send({
+        mensaje: 'Producto creado',
+        producto: queProducto
+    });
+});
+
+app.put('/api/producto/:productID', (req, res) => {
+        const queProducto = req.body;
+        const productID = req.params.productID;
+        res.status(200);
+        res.send({
+        mensaje: `Producto ${productID} modificado`,
+        producto: queProducto
+    });
+});
+app.delete('/api/producto/:productID', (req, res) => {
+    const productID = req.params.productID;
+    res.status(200);
+    res.send( { mensaje: `Producto ${productID} eliminado` } );
 });
 
 app.listen(port, () => {
-    console.log(`API REST ejecutándose en http://localhost:${port}/hola/:unNombre`);
+    console.log(`API REST ejecutándose en http://localhost:${port}/api/producto`);
 });
